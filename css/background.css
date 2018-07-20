@@ -1,0 +1,9 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+#con{
+    background: url("../images/bgimage.jpg") no-repeat;
+    width: 1366px;
+    height: 768px;
+}
