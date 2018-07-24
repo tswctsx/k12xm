@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>线下状况</title>
+    <link rel="stylesheet" href="../css/1.css">
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/echarts.min.js"></script>
+    <script src="../js/china.js"></script>
+    <script src="../js/highcharts.js"></script>
+    <script src="../js/highcharts-3d.js"></script>
+
+</head>
+<body>
+<div id="box">
+    <h2>K12线下教育市场分析</h2>
+    <div id="content">
+        <div id="left">
+            <div id="lt1"></div>
+            <div id="lt2"></div>
+        </div>
+        <div id="right">
+            <div id="rt1"></div>
+            <div id="rt2"></div>
+        </div>
+    </div>
+   
+</div>
+</body>
+</html>
+<script>
+   //line-lt1--------------------------
+    function line(){
+        var lt1=echarts.init($("#lt1")[0]);
+        var option = {
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'cross',
+                    crossStyle: {
+                        color: '#999'
+                    }
+                }
+            },
+           /* toolbox: {
+                feature: {
+                    dataView: {show: true, readOnly: false},
+                    magicType: {show: true, type: ['line', 'bar']},
+                    restore: {show: true},
+                    saveAsImage: {show: true}
+                }
+            },*/
+            legend: {
+                data:['交易规模(亿元人民币)','同比增长率'],
+                textStyle:{
+                    color:'white'
+                }
+            },
+            xAxis: {
+                    type: 'category',
+                    data: ['2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017'],
+                    axisPointer: {
+                        type: 'shadow'
+                    },
+                    axisLabel:{
+                        show:true,
+                        textStyle:{
+                            color:'white'
+                        }
+                    }
+                },
+            yAxis: [
+                {
+                    type: 'value',
+                    name: '交易规模',
+                    nameTextStyle:{
+                        color:['white']
+                    },
+                    min: 0,
+                    max: 120,
+                    interval: 20,
+                    axisLabel: {
+                        formatter: '{value}',
+                        textStyle:{
+                            color:'white'
+                        }
+                    }
+                },
+                {
+                    type: 'value',
+                    name: '同比增长率',
+                    nameTextStyle:{
+                        color:['white']
+                    },
+                    min: 0,
+                    max: 90,
+                    interval:15,
+                    axisLabel: {
+                        formatter: '{value} %',
+                        textStyle:{
+                            color:'white'
+                        }
+                    }
+                }
+            ],
+            series: [
+                {
+                    name:'交易规模(亿元人民币)',
+                    type:'bar',
+                    itemStyle: {
+                        normal: {
+                            color: "#2ec7c9",
+                            lineStyle: {
+                                color: "#2ec7c9"
+                            }
+                        }
+                    },
+                    data:[5.7,8.1,12.9,20.6,36.4,52.8,71.1,88.3]
+                },
+                {
+                    name:'同比增长率',
+                    type:'line',
+                    yAxisIndex: 1,
+                    data:[41.2,59.3,59.7,76.7,45.1,34.7,24.2,20.8]
+                }
+            ]
+        };
+
+        lt1.setOption(option)
+    }
+    line();
+    //bar-lt2--------------------------
+    $("#lt2").highcharts({
+        chart: {
+            type: 'pie',
+            backgroundColor: 'rgba(0,0,0,0)',
+            options3d: {
+                enabled: true,
+                alpha: 45,
+                beta: 0
+            }
+        },
+        title: {
+            text: '用户消费能力情况',
+            style:{
+                color:'white'
+            }
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                depth: 35,
+                dataLabels: {
+                    enabled: true,
+                    format: '{point.name}'
+                }
+            }
+        },
+        series: [{
+            type: 'pie',
+            name: '消费群体占比',
+            data: [
+                ['高消费人群',4.78],
+                ['中高消费人群',26.33],
+                ['中等消费人群',23.66],
+                {
+                    name: '中低消费人群',
+                    y: 31.09,
+                    sliced: true,
+                    selected: true
+                },
+                ['低消费人群',14.14]
+            ]
+        }]
+    });
+    //map-rt1--------------------------
+    var arr=[];
+    $(function () {
+        var url="http://localhost:8080/ajaxsys/a.do";
+        var sql='select \n' +
+            'area,\n' +
+            'count(name) as total\n' +
+            'from data \n' +
+            'where area!=""\n' +
+            'GROUP BY area';
+        var data={'sql':sql};
+        $.ajax({
+            type:'get',
+            url:url,
+            data:data,
+            success:function (d) {
+                for(var i=0;i<d[0].length;i++){
+                    arr.push({name:d[0][i],value:d[1][i]})
+                }
+                map(arr)
+            }
+        })
+    });
+    function map(a) {
+        var rt1=echarts.init($("#rt1")[0]);
+        var option = {
+            title: {
+                text: '线下网点分布情况',
+                left: 'center',
+                top:'1%',
+                textStyle:{
+                    color:'white'
+                }
+            },
+            tooltip: {
+                trigger: 'item'
+            },
+            visualMap: {
+                min: 0,
+                max: 100,
+                left: '30px',
+                top: 'bottom',
+                text: ['高','低'],           // 文本，默认为数值文本
+                calculable: true,
+                itemHeight:80
+            },
+            series: [
+                {
+                    name: '网点数',
+                    type: 'map',
+                   /* itemStyle:{
+                        areaColor:''
+                    },*/
+                    mapType: 'china',
+                    roam: false,
+                    data:a
+                }
+
+            ]
+        };
+        rt1.setOption(option)
+    }
+    //radar-rt2-------------------------
+    function radar() {
+        var rt2=echarts.init($('#rt2')[0]);
+        var option = {
+            title: {
+                text: '用户需求问卷评分',
+                left:'center',
+                too:'1%',
+                textStyle:{
+                    color:'white'
+                }
+            },
+
+            tooltip: {
+                trigger: 'axis'
+            },
+          /*  legend: {
+                right: 'right',
+                top:'1%',
+                textStyle:{
+                    color:'white'
+                },
+                data:['某软件','某主食手机']
+            },*/
+            radar: {
+                    name:{
+                        textStyle: {
+                            color: 'white',
+                            borderRadius: 3
+                        }
+                    },
+                    indicator: [
+                        {text: '机构品牌', max: 10},
+                        {text: '教学内容', max: 10},
+                        {text: '授课方式', max: 10},
+                        {text: '教师资历', max: 10},
+                        {text: '教学环境', max: 10},
+                        {text: '教学费用', max: 10}
+                    ],
+                    center: ['50%','55%'],
+                    radius: 100
+               /* {
+                    indicator: [
+                        {text: '外观', max: 100},
+                        {text: '拍照', max: 100},
+                        {text: '系统', max: 100},
+                        {text: '性能', max: 100},
+                        {text: '屏幕', max: 100}
+                    ],
+                    radius: 80,
+                    center: ['75%','60%'],
+                },*/
+            },
+            series: [
+                {
+                    type: 'radar',
+                    tooltip: {
+                        trigger: 'item'
+                    },
+                    itemStyle: {
+                        normal: {
+                            areaStyle: {
+                                color: 'gold',
+                                opacity:0.6
+                            }
+                        }
+                    },
+                    data: [
+                        {
+                            value: [6.5,7.1,6.4,8.4,5.7,6.1],
+                            name: '用户需求评分',
+                            lineStyle:{
+                                color:'#ccc'
+                            },
+                            label: {
+                                normal: {
+                                    show: true,
+                                    textStyle:{
+                                        color:'white'
+                                    },
+                                    formatter:function(params) {
+                                        return params.value+'分';
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    type: 'radar',
+                    radarIndex: 1,
+                    data: [
+                        {
+                            value: [85, 90, 90, 95, 95],
+                            name: '某主食手机'
+                        },
+                        {
+                            value: [95, 80, 95, 90, 93],
+                            name: '某水果手机'
+                        }
+                    ]
+                },
+            ]
+        };
+        rt2.setOption(option)
+    }
+    radar();
+</script>

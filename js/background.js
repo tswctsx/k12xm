@@ -543,7 +543,7 @@ function worldNum(){
                 viewDistance: 25
             },
             height:280,
-            backgroundColor:"rgb(0,0,0,0)"
+            backgroundColor:"rgb(0,0,0,0)",
         },
         yAxis: {
             title: {

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>招生调查</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        html {
+            background: url("../images/bg8.jpg") no-repeat center center fixed;
+            background-size: cover;
+            opacity: 0.8;
+            filter:Alpha(opacity=50);
+        }
+
+        #container{
+            width:100%;
+            height:768px;
+            position: absolute;
+            /*background-color: yellow;*/
+            display: flex;
+            flex-wrap:wrap;
+            justify-content:center;
+            align-content:center;
+
+        }
+
+        #left{
+                width: 65% ;
+                height: 80%;
+            position: relative;
+            /*border: 1px solid white;*/
+            /*background-color: red;*/
+            display: flex;
+            flex-wrap:wrap;
+            align-content:flex-start;
+            justify-content:center;
+            overflow: hidden;
+        }
+        #bot{
+            width: 100%;
+            height: 34%;
+            display: flex;
+            justify-content:center;
+            margin-top: 3%;
+            /*border: 1px solid white;*/
+
+        }
+        #right{
+            width: 25% ;
+            height: 80%;
+            /*border: 1px solid white;*/
+            position: relative;
+            display: flex;
+            flex-wrap:wrap;
+            align-content:center;
+            align-items:center;
+            overflow: hidden;
+
+        }
+        #cover-r,#cover-l{
+            width: 100%;
+            height: 100%;
+            /*border-radius: 15px;*/
+            /*border: 1px solid white;*/
+            background-color: #3539b7;
+            opacity: 0.2;
+            position: absolute;
+            z-index: -1;
+        }
+        #map{
+            width:100%;
+            height: 66%;
+            /*border: 1px solid white;*/
+        }
+        #box{
+            width:36%;
+            height: 100%;
+            overflow:hidden;
+            /*border: 1px solid white;*/
+            color: white;
+            font-size: 12px;
+            padding-left:3%;
+            padding-top: 1%;
+        }
+        #box p{
+            font-size: 16px;
+            font-weight: 600;
+            padding-bottom: 1%;
+        }
+        li{list-style:none;}
+        #box ul li{line-height:35px;}
+        #box ul{
+            height: 100%;
+            overflow: hidden;
+        }
+        #urban-rate{
+            width:33%;
+            height: 100%;
+            /*border: 1px solid white;*/
+
+        }
+        #course-number{
+            width:32%;
+            height: 100%;
+            /*border: 1px solid white;*/
+
+        }
+        #student-number{
+            width:100%;
+            height: 50%;
+            /*border: 1px solid white;*/
+        }
+        #Family-input{
+            width:100%;
+            height: 50%;
+            /*border: 1px solid white;*/
+        }
+
+        #title{
+            width: 100%;
+            height:15%;
+            /*border: 1px solid white;*/
+            text-align: center;
+
+        }
+        #title p:first-child{
+            margin-top: 20px;
+            font-size: 34px;
+            font-weight: bold;
+            color: #fff;
+
+        }
+        #title p:nth-child(2){
+            margin-top: 13px;
+            padding-left: 580px;
+            font-size: 18px;
+            font-weight: 600;
+            color: #fff;
+        }
+
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="title">
+        <p>k12教育生源市场分析</p>
+        <p>市场空间=在校学生数*参培率*ARPU</p>
+    </div>
+        <div id="left">
+            <div id="map"></div>
+            <div id="bot">
+              <div id="box">
+                  <p>【k12教育资讯】</p>
+                  <ul>
+                      <li>K12教育市场鏖战将至 内容为王时代如何突出重围</li>
+                      <li>风口浪尖上的K12教育 品牌型机构的新契机</li>
+                      <li>完成品牌焕新升级 51Talk只做在线青少儿英语业务</li>
+                      <li>瑞思学科英语升级“K12全年龄段产品体系”</li>
+                      <li>成长保魏俊杰：在线k12素质教育帮助孩子突破边界</li>
+                      <li>K12在线英语教育政策利好 100课堂推动行业升级！</li>
+                      <li>青少儿在线教育赛道火热，vipjr如何弯道超车？</li>
+                      <li>雨伞爸爸教育携手网易直播演绎真人版“大富翁”</li>
+                      <li>学校如何调动学生学习自主性和家长的积极性？</li>
+                      <li>没有生产力创新的生产关系创新都是假故事</li>
+                      <li>确保每个儿童的机会：美国基础教育改革走向</li>
+                      <li>51Talk战略深耕K12产品矩阵 巩固市场领先地位</li>
+                      <li>七大维度剖析K12行业发展</li>
+                      <li>环球雅思进军K12业务:拟分一杯羹？</li>
+
+                  </ul>
+              </div>
+              <div id="urban-rate"></div>
+              <div id="course-number"></div>
+              <div id="cover-l"></div>
+            </div>
+        </div>
+        <div id="right">
+            <div id="student-number"></div>
+            <div id="Family-input"></div>
+            <div id="cover-r"></div>
+        </div>
+
+</div>
+
+</body>
+</html>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/echarts.js"></script>
+<script src="../js/china.js"></script>
+<script src="../js/ban1.js"></script>
