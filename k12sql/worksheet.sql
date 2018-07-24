@@ -1,3 +1,42 @@
+/*
+Navicat MySQL Data Transfer
+
+Source Server         : ABCD
+Source Server Version : 50718
+Source Host           : localhost:3306
+Source Database       : k12
+
+Target Server Type    : MYSQL
+Target Server Version : 50718
+File Encoding         : 65001
+
+Date: 2018-07-24 17:13:07
+*/
+
+SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for `worksheet`
+-- ----------------------------
+DROP TABLE IF EXISTS `worksheet`;
+CREATE TABLE `worksheet` (
+  `time1` varchar(255) DEFAULT NULL,
+  `meigushouyi` varchar(255) DEFAULT NULL,
+  `meigujingzichan` varchar(255) DEFAULT NULL,
+  `cunhuoday` varchar(255) DEFAULT NULL,
+  `cunhuolv` varchar(255) DEFAULT NULL,
+  `liuzhuanlv` varchar(255) DEFAULT NULL,
+  `gudinglv` varchar(255) DEFAULT NULL,
+  `zongzhunlv` varchar(255) DEFAULT NULL,
+  `zengchanglv` varchar(255) DEFAULT NULL,
+  `liudonglv` varchar(255) DEFAULT NULL,
+  `sudonglv` varchar(255) DEFAULT NULL,
+  `chanlv` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of worksheet
+-- ----------------------------
 INSERT INTO `worksheet` VALUES ('2018', '0.38', '2.86', '1.65', '218', '1.35', '8.54', '0.7', '119.13%', '1.47', '1.46', '0.87');
 INSERT INTO `worksheet` VALUES ('2017', '0.24', '7.83', '1.18', '305.14', '1.5', '7.76', '0.72', '44.90%', '1.31', '1.3', '1.78');
 INSERT INTO `worksheet` VALUES ('2016', '1.29', '5.4', '0.68', '530.59', '1.17', '5.96', '0.68', '37.81%', '1.35', '1.34', '1.42');

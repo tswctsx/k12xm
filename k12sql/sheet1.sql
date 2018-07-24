@@ -1,3 +1,33 @@
+/*
+Navicat MySQL Data Transfer
+
+Source Server         : ABCD
+Source Server Version : 50718
+Source Host           : localhost:3306
+Source Database       : k12
+
+Target Server Type    : MYSQL
+Target Server Version : 50718
+File Encoding         : 65001
+
+Date: 2018-07-24 17:12:55
+*/
+
+SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for `sheet1`
+-- ----------------------------
+DROP TABLE IF EXISTS `sheet1`;
+CREATE TABLE `sheet1` (
+  `city` varchar(255) DEFAULT NULL,
+  `numbei` varchar(255) DEFAULT NULL,
+  `fugou` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of sheet1
+-- ----------------------------
 INSERT INTO `sheet1` VALUES ('北京', '127', '38.34');
 INSERT INTO `sheet1` VALUES ('上海', '43', '36.35');
 INSERT INTO `sheet1` VALUES ('江苏', '35', '25.65');

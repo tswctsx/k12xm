@@ -185,6 +185,7 @@ $(function(){
         }
     })
 });
+openHomepage();
 //地图
 function drawMap(value){
     myechartsMap = echarts.init(document.getElementById('china'));
@@ -897,3 +898,9 @@ function yewu() {
 
 }
 yewu();
+
+function openHomepage(){
+    $("#header1").on("click",function () {
+        window.open("homePage.html")
+    })
+}

@@ -48,6 +48,7 @@ worldNum();
 firm();
 perNum();
 project();
+openHomepage();
 
 function teach(){
     var myecharts=echarts.init(document.getElementById("teachscale1"));
@@ -698,5 +699,10 @@ function perNum(){
         }]
     }
     myecharts.setOption(option);
+}
+function openHomepage(){
+    $("#header1").on("click",function () {
+        window.open("homePage.html")
+    })
 }
 

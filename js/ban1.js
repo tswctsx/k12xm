@@ -46,6 +46,7 @@ drawurban(10.36);
 drawstudent();
 drawInput();
 drawnumber();
+openHomepage();
 $(window).on('resize',function(){
     myechartsUrban.resize();
     myechartsMap.resize();
@@ -571,4 +572,8 @@ function drawnumber(){
     };
     myechartsnumber.setOption(optionnumber);
 }
-
+function openHomepage(){
+    $("#header1").on("click",function () {
+        window.open("homePage.html")
+    })
+}
