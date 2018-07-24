@@ -1,0 +1,74 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+}
+#box{
+    position: relative;
+    width: 1366px;
+    height: 768px;
+    background:url(../images/bg2.png) repeat ;
+
+}
+#left{
+    position: absolute;
+    left: 0;
+    top:0;
+    width: 28%;
+    height:100%;
+
+
+}
+
+#right{
+    position: absolute;
+    right: 0;
+    top:0;
+    width: 28%;
+    height:100%;
+
+}
+#con{
+    position: absolute;
+    left:30%;
+    top:0;
+    width:40% ;
+    height:100%;
+
+
+
+}
+#right #right_top,
+ #con #con_top,
+#left #left_top
+{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height:55%;
+
+
+}
+#left #left_foot, #right #right_foot{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height:40%;
+
+}
+#con #con_foot{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height:30%;
+
+}
+
+#con #con_top{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height:65%;
+
+}

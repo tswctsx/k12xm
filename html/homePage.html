@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <script src="../js/jquery.js"></script>
+    <script src="../js/echarts.js"></script>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #cont{
+            width: 1366px;
+            height: 768px;
+            background: #121652;
+        }
+    </style>
+</head>
+<body>
+<div id="cont"></div>
+</body>
+</html>
+<script>
+        nPage();
+        function nPage(){
+        var myecharts=echarts.init(document.getElementById("cont"));
+        var option={
+            title: {
+                text: 'K12行业分析',
+                top: 50,
+                left: 42+"%",
+                textStyle: {
+                    color: '#4fd41a',
+                    fontWeight: "bold",
+                    fontSize: 36
+                }
+            },
+            grid: {
+                show: false,
+            },
+            animation: false,
+            color:"#00b7d3",
+            series : [
+                {
+                    name: 'K12行业分析',
+                    type: 'graph',
+                    layout: 'force',
+                    symbol: 'rect',
+                    symbolSize:[100,36],
+                    symbolColor:"green",
+                    edgeSymbol: ['none', 'arrow'],
+                    borderRadius:5,
+                    data: [
+                        {name:'K12'},
+                        {name:'行业背景'},
+                        {name:'招生调查'},
+                        {name:'生源维护'},
+                        {name:'线上课程'},
+                        {name:'线下课程'},
+                        {name:'师资分析'},
+                        {name:'财务分析'}
+                    ],
+                    links: [
+                        {source:'K12',target:'行业背景'},
+                        {source:'K12',target:'招生调查'},
+                        {source:'K12',target:'生源维护'},
+                        {source:'K12',target:'线上课程'},
+                        {source:'K12',target:'线下课程'},
+                        {source:'K12',target:'师资分析'},
+                        {source:'K12',target:'财务分析'}
+                    ],
+                    roam: true,
+                    label: {
+                        show:true,
+                        position: 'inside',
+                        fontWeight: "bold",
+                        fontSize: 18,
+                        color:"#255a1b"
+                    },
+                    lineStyle:{
+                        color:"green",
+                        curveness:0.5
+                    },
+                    force: {
+                        repulsion: 1500
+                    }
+                }
+            ]
+
+        }
+        myecharts.setOption(option);
+        myecharts.on("click",function(params){
+            if(params.name=="行业背景"){
+                window.open("background.html")
+            }
+            if(params.name=="招生调查"){
+                window.open("")
+            }
+            if(params.name=="生源维护"){
+                window.open("")
+            }
+            if(params.name=="线上课程"){
+                window.open("")
+            }
+            if(params.name=="线下课程"){
+                window.open("")
+            }
+            if(params.name=="师资分析"){
+                window.open("")
+            }
+            if(params.name=="财务分析"){
+                window.open("")
+            }
+        })
+    }
+</script>

@@ -2,8 +2,145 @@
     padding: 0;
     margin: 0;
 }
+
 #con{
-    background: url("../images/bgimage.jpg") no-repeat;
+    background: url("../images/bgimg.jpg") no-repeat center;
+
     width: 1366px;
     height: 768px;
+    position:relative;
+}
+#header{
+    position:absolute;
+    color:#fffff0;
+    width: 100%;
+    top:20px;
+    left:0;
+}
+#header h2{
+    margin-left:43%;
+    background: #22274e52;
+    width: 195px;
+    padding:5px 20px;
+}
+#teachscale,#npnum,#scnum,#scale,#profit,#gpnum,#stnum,#project{
+    position:absolute;
+    background: #22274e52;
+    /*border:2px solid red;*/
+}
+#teachscale{
+    width: 280px;
+    height: 230px;
+    left:50px;
+    top:75px;
+}
+#teachscale1{
+    width: 280px;
+    height: 230px;
+}
+#scnum{
+    width: 692px;
+    height: 390px;
+    left:335px;
+    top:75px;
+}
+#scnum1{
+    width: 692px;
+    height: 390px;
+}
+#scale{
+    width: 280px;
+    height: 212px;
+    right:50px;
+    top:75px;
+}
+#scale1{
+    width: 280px;
+    height: 212px;
+}
+#project{
+    width: 280px;
+    height: 208px;
+    left:50px;
+    top:310px;
+}
+#project1{
+    width: 280px;
+    height: 208px;
+}
+#npnum{
+    width: 280px;
+    height: 184px;
+    right:50px;
+    top:292px;
+}
+#npnum1{
+    width: 280px;
+    height: 184px;
+}
+#profit{
+    width: 280px;
+    height: 220px;
+    left:50px;
+    bottom:20px;
+}
+#profit1{
+    width: 280px;
+    height: 220px;
+}
+#gpnum{
+    width: 692px;
+    height: 272px;
+    left:335px;
+    bottom:20px;
+}
+#gpnum1{
+    width: 672px;
+    height: 262px;
+}
+#stnum{
+    width: 280px;
+    height: 263px;
+    right:50px;
+    bottom:20px;
+}
+#stnum1{
+    width: 280px;
+    height: 263px;
+}
+.lt{
+    position:absolute;
+    width: 20px;
+    height: 20px;
+    border-left:1px solid #46c3ff;
+    border-top:1px solid #46c3ff;
+    top:0;
+    left:0;
+}
+.rt{
+    position:absolute;
+    width: 20px;
+    height: 20px;
+    border-right:1px solid #46c3ff;
+    border-top:1px solid #46c3ff;
+    top:0;
+    right:0;
+}
+.lb{
+    position:absolute;
+    width: 20px;
+    height: 20px;
+    border-left:1px solid #46c3ff;
+    border-bottom:1px solid #46c3ff;
+    left:0;
+    bottom:0;
+}
+.rb{
+    position:absolute;
+    width: 20px;
+    height: 20px;
+    border-right:1px solid #46c3ff;
+    border-bottom:1px solid #46c3ff;
+    right:0;
+    bottom:0;
 }
