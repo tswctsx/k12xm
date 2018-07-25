@@ -11,8 +11,19 @@ function zheXian() {
     // var myecharts=echarts.init(document.getElementById('echarts1'));
     var myecharts=echarts.init($('#left_top')[0]);
     var options= {
+        // title: {
+        //     text:'k12线上教育的的发展速度及预测',
+        //
+        // },
         title: {
-            text:'k12线上教育的的发展速度及预测',
+            text: 'k12线上教育的发展速度及预测',
+            top:0,
+            left:left,
+
+            textStyle:{
+                color:"#ffffff",
+                fontSize:17,
+            }
 
         },
 
@@ -100,11 +111,11 @@ function china() {
     option = {
         title: {
             text: 'k12线上教育各省分布图',
-            top:30,
+            top:20,
             left: 'center',
             textStyle:{
-                color:"blue",
-                fontSize:30,
+                color:"#ffffff",
+                fontSize:25,
             }
         },
         visualMap: {
@@ -116,7 +127,7 @@ function china() {
             calculable: false,
             orient: 'horizontal',
             inRange: {
-                color: ['#ffffff', '#601e2f'],
+                color: ['#ffffff', 'blue'],
                 symbolSize: [30, 100]
             }
         },
@@ -402,9 +413,19 @@ function refresh(areaname,areavalue){
 function bingMap() {
     var myecharts = echarts.init($('#right_top')[0]);
     var options ={
+        // title: {
+        //     text: 'k12的分类信息表',
+        //     x: 'center'
+        // },
+
         title: {
-            text: 'k12的分类信息表',
-            x: 'center'
+            text: 'k12线上教育类型图',
+            top:0,
+            left:75,
+            textStyle:{
+                color:"#ffffff",
+                fontSize:17,
+            }
         },
         tooltip: {
             trigger: 'item',
@@ -420,7 +441,7 @@ function bingMap() {
                 name: '访问来源',
                 type: 'pie',
                 radius: '57%',
-                center: ['60%', '75%'],
+                center: ['60%', '70%'],
                 data:[
                     {value:'4062345',name:'语数英'},
                     {value:'2280444',name:'其他科目'},
@@ -449,8 +470,13 @@ function zhuZhuang(){
 
     var options ={
         title: {
-            text:'k12线上教育的分布图',
-
+            text: 'k12线上教育省份排行榜',
+            top:0,
+            left:75,
+            textStyle:{
+                color:"#ffffff",
+                fontSize:17,
+            }
         },
         color: ['#3398DB'],
         tooltip : {
@@ -505,9 +531,9 @@ function yiBiao(areaname,areavalue){
             text:`k12线上教育${areaname}的占比`,
             x:'center',
             textStyle:{
-                fontSize:25,
+                fontSize:20,
                 fontFamily:'微软雅黑',
-                color:'blue',
+                color:'#ffffff',
             }
         },
         tooltip : {
@@ -524,8 +550,10 @@ function yiBiao(areaname,areavalue){
                 name: '',
                 type: 'gauge',
                 splitNumber:10,
-                detail: {formatter:'{value}%'},
-                data: [{value:(areavalue/350*100).toFixed(2)}]
+                detail: {formatter:'{value}%',
+                    offsetCenter:[0,"60%"]},
+                data: [{value:(areavalue/350*100).toFixed(2)}],
+
 
             }
         ]
@@ -537,9 +565,13 @@ function bingHuan(){
     var myChart = echarts.init($('#left_foot')[0]);
     var option = {
         title: {
-            text: 'k12在线教育平台分布的城市占比',
-            subtext: '纯属虚构',
-            x: 'center'
+            text: 'k12线上教育城市分布图',
+            top:0,
+            left:75,
+            textStyle:{
+                color:"#ffffff",
+                fontSize:17,
+            }
         },
         tooltip: {
             trigger: 'item',

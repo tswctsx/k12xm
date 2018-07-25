@@ -665,6 +665,17 @@ function yunying(t,cday,cunhuo,liudong) {
 function drawlirun(t,std,stb) {
     myechartslirun = echarts.init(document.getElementById('yingshou'));
     var lirun_option= {
+
+        legend: {
+            data: ['净利润', '净利率'],
+            top: 30,
+            textStyle: {
+                color: "#c8cfe9"
+            }
+
+        },
+
+
         grid: {
             left: '3%',
             right: '4%',
@@ -814,7 +825,7 @@ function drawlirun(t,std,stb) {
 
             },
             {
-                name:'产权比率',
+                name:'净利率',
                 type: 'line',
                 yAxisIndex: 1,
                 data:stb,
